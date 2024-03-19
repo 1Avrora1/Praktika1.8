@@ -68,6 +68,7 @@ public class DZ2 {
                 }
                 else{
                     System.out.println("Автомобиля с таким госномером нет, его не удалить");
+                    break;
                 }
             }
         }   
