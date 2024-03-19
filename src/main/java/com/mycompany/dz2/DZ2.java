@@ -6,7 +6,6 @@
 package com.mycompany.dz2;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -72,9 +71,6 @@ public class DZ2 {
                 }
             }
         }   
-            
-            
-        
         if (vybor == 3){
             carsList.clear();
         }
