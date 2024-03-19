@@ -25,15 +25,15 @@ public class DZ2 {
         
         if (vybor == 1){
             System.out.println("Введите марку автомобиля: ");
-            String Brand = scanner.nextLine();
+            String Marka = scanner.nextLine();
             System.out.println("Введите год выпуска автомобиля: ");
-            int Year = 0;
+            int God = 0;
             String VvodGoda = scanner.nextLine();
             String proverka = "[0-9]+";
             if (VvodGoda.matches(proverka)==true){
                 int ProverkaVvodGoda = Integer.parseInt(VvodGoda);
                 if (ProverkaVvodGoda > 1769 && ProverkaVvodGoda < 2025){
-                    Year = ProverkaVvodGoda;
+                    God = ProverkaVvodGoda;
                 }
                 else{
                 System.out.println("Неверный год");
@@ -44,10 +44,10 @@ public class DZ2 {
                 System.out.println("Неверный формат года");
             } 
             System.out.println("Введите госномер автомобиля (в формате БЦЦЦББ|регион): ");
-            String RegNumber = scanner.nextLine();
+            String VvodNomera = scanner.nextLine();
             boolean PovtorNomera = false;
             for (Car newCar : carsList){
-                if(newCar.RegNumber.equals(RegNumber)){
+                if(newCar.RegNumber.equals(VvodNomera)){
                     PovtorNomera=true;
                     break; 
                 }
@@ -56,27 +56,25 @@ public class DZ2 {
                 System.out.println("Автомобиль с таким госномером уже есть в списке");
             }
             else{
-                carsList.add(new Car(Brand, RegNumber, Year));
+                carsList.add(new Car(Marka, VvodNomera, God));
             }
         }
         if (vybor == 2){
             System.out.println("Введите госномер автомобиля, для удаления из списка (в формате БЦЦЦББ|регион): ");
             String removeNumber = scanner.nextLine();
-            for (Car newCar : carsList){
-                if(newCar.RegNumber.equals(removeNumber)){
-                    Iterator<Car> carIterator = carsList.iterator();
-                    while (carIterator.hasNext()){
-                        Car nextCar = carIterator.next();
-                        if (nextCar.RegNumber.equals(removeNumber)){
-                            carIterator.remove();
-                        }
-                    }
+            for (int i = 0; i < carsList.size(); i++) {
+                if (carsList.get(i).RegNumber.equals(removeNumber)) {
+                    carsList.remove(carsList.get(i));
+                    break;
                 }
                 else{
                     System.out.println("Автомобиля с таким госномером нет, его не удалить");
                 }
             }
-        }
+        }   
+            
+            
+        
         if (vybor == 3){
             carsList.clear();
         }
